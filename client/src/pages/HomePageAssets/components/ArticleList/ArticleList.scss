@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.ArticleList{
+    width: 98%;
+    height: 100%;
+    background-color: white;
+    border-left: 2px solid rgba(0, 0, 0, .5);
+    border-right: 2px solid rgba(0, 0, 0, .5);
+
+    h1{
+        margin: 20px;
+    }
+    
+}
+
+.arrow{
+    background-color: none;
+    border:none;
+    color: black;
+}
+
+
+.listItem{
+    > button{
+        box-sizing: border-box;
+        padding: 10px 20px 10px 20px;
+        margin: 10px;
+        border: none;
+        color: white;
+
+                
+ 
+
+        &:focus{
+            outline: 0;
+        }
+
+        &:hover{
+            background-color: #555;
+        }
+    }
+}
+
+.good{
+    background-color: palegreen;
+}
+.bad{
+    background-color: palevioletred
+}
