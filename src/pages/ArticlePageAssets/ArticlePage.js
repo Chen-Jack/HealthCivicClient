@@ -27,6 +27,7 @@ class Comment extends Component{
             </div>
             <div className={s.commentFooter}>
                 <span className={s.date}> Posted: {this.props.comment.date}  </span>
+                <span className={s.NLP}> NLP Group: {this.props.comment.group} </span>
                 <div className={s.sentiment}>
                     <span style={{"color":"forestgreen"}}> <strong> Good: {this.props.comment.pos}% </strong> </span>
                     <span style={{"color": "grey"}}> <strong> Neutral: {this.props.comment.neu}%  </strong> </span>
