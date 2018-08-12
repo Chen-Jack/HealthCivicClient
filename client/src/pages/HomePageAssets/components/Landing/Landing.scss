@@ -5,9 +5,11 @@
 
 .Landing{
     width: 100vw;
-    height: 100vw;
+    min-height: max-content;
     max-width: 100%;
-    background-color: #ddd;
+    background-image: url('../../polaroid.png');
+    position: relative;
     
     text-align: center;
 }
+

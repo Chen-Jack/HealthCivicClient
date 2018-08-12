@@ -1,0 +1,64 @@
+
+.featuredItem{
+    width: 80%;
+    border: 2px solid rgba(0,0,0,0.5);
+    display: inline-flex;
+    margin: 20px;
+    background-color: white;
+}
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .img{
+        display: inline-block;
+        width: 50%;
+    }
+
+    .body{
+        color: #555;
+        padding: 5px;
+        
+        padding-bottom: 100px;
+    }
+
+    .buttonLayout{
+        display: flex;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        > button{
+           
+            width: 50%;
+            box-sizing: border-box;
+            padding: 10px 20px 10px 20px;
+            border: none;
+            color: white;
+
+
+            &:focus{
+                outline: 0;
+            }
+
+            &:hover{
+                background-color: #555;
+            }
+
+            .arrow{
+                background-color: none;
+                border:none;
+                color: black;
+            }
+        }
+    }
+}
+
+
+
+
+
+

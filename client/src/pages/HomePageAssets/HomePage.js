@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Header from './components/Header/Header'
 import Landing from './components/Landing/Landing'
-
+import Footer from './components/Footer/Footer'
 
 class HomePage extends Component{
     constructor(props) {
@@ -17,13 +17,13 @@ class HomePage extends Component{
             selectedSubject: subject
         })
     }
+
     
     render(){
         return <div>
             <Header clickHandler={this.changeSubject}/>
             <Landing subject={this.state.selectedSubject}/>
-
-            <button onClick={()=>console.log(this.state.selectedSubject)}> Check State </button>
+            <Footer/>
             
         </div>
     }

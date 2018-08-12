@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
 import s from './ArticleList.scss';
-import arrow_up from './arrow_up.png';
-import arrow_down from './arrow_down.png';
-import cn from 'classnames'
+import {Link} from 'react-router-dom';
+import Loader from '../Loader/Loader';
+import FeaturedItem from '../FeaturedItem/FeaturedItem';
+import ButtonLayout from '../ButtonLayout/ButtonLayout';
+import {Carousel} from 'react-bootstrap';
 
 const ArticleListItem = (props)=>{
-    return <div className={s.listItem}>
-        <h2> {props.article.title} </h2>
-        <button className={s.good} onClick={()=>console.log()} > <img className={s.arrow} src={arrow_up}/> {props.article.likes}  </button>
-        <button className={s.bad} onClick={()=>console.log()} > <img className={s.arrow} src={arrow_up}/> {props.article.dislikes} </button>
+    return <div className={props.styling}>
+        <img className={s.img} src={`https://source.unsplash.com/random/400x300`} />
+        <div className={s.content}>
+            <h2 className={s.title}>
+            <Link className={s.link} to={`/article/${props.article.id}`} >{props.article.title} </Link>
+            </h2>
+            <h4 className={s.body}> {props.article.body} </h4>
+            <ButtonLayout article={props.article}/>
+        </div>
     </div>
 }
 
@@ -17,43 +24,88 @@ class ArticleList extends Component {
         super(props);
 
         this.state = {
+            filter: 'Featured',
             articles: [
                 {
                     id: 0,
                     title: "New Proposed Law", 
                     likes: 10, 
-                    dislikes: 5
+                    neutral: 40,
+                    dislikes: 5,
+                    body: 'Qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
                 },
                 {
                     id: 1,
                     title: "Water is illegal", 
                     likes: 50, 
-                    dislikes: 5
+                    dislikes: 5,
+                    neutral: 40,
+                    body: 'At vero eos et accusamus et iusto oum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
                 },
                 {
                     id: 2,
                     title: "Sharks must pay taxes now", 
                     likes: 10002, 
-                    dislikes: 5244
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
                 },
                 {
                     id: 3,
                     title: "Chicken declared first", 
                     likes: 10, 
-                    dislikes: 522
+                    dislikes: 522,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
                 },
                 {
                     id: 4,
                     title: "Eggs must pay health insurance", 
                     likes: 50, 
-                    dislikes: 54
+                    dislikes: 54,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
                 },
                 {
                     id: 5,
                     title: "Lawmakers retire from making dumb policies", 
                     likes: 2002, 
-                    dislikes: 5244
-                }
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 6,
+                    title: "Eggs must pay health insurance", 
+                    likes: 50, 
+                    dislikes: 54,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 7,
+                    title: "Chicken declared first", 
+                    likes: 10, 
+                    dislikes: 522,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 8,
+                    title: "Eggs must pay health insurance", 
+                    likes: 50, 
+                    dislikes: 54,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 9,
+                    title: "Lawmakers retire from making dumb policies", 
+                    likes: 2002, 
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
             ],
             isLoading: true
         }
@@ -75,31 +127,39 @@ class ArticleList extends Component {
         
         new_article_order.sort(compare)
         this.setState({
+            filter: query,
             articles: new_article_order
         })     
     }
 
-    //When the subject of the article list changes again
-    // componentDidUpdate(){
-        //fetch
-    // }
-
-    // componentWillMount(){
-        // fetch(this.props.subject)
-    // }
-
-
     render(){
         return <div className={s.ArticleList}>
-            <h1> {this.props.subject} </h1>
-            <button onClick={()=>console.log(this.state.articles)}> Check </button>
-            <button onClick={this.sortArticles.bind(this, 'likes')}> Sort by Likes </button>
+            {/* <h1> {this.props.subject} Articles </h1> */}
+
+            {/* <button onClick={this.sortArticles.bind(this, 'likes')}> Sort by Likes </button>
             <button onClick={this.sortArticles.bind(this, 'dislikes')}> Sort by Dislikes </button>
-            <button onClick={this.sortArticles.bind(this, 'title')}> Sort by Likes </button>
+            <button onClick={this.sortArticles.bind(this, 'title')}> Sort by Likes </button> */}
+            <h1> FEATURED </h1>
+            <Carousel className={s.carosel}>
+                <Carousel.Item>
+                    <FeaturedItem article={this.state.articles[0]} />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <FeaturedItem article={this.state.articles[1]} />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <FeaturedItem article={this.state.articles[2]} />
+                </Carousel.Item>
+            </Carousel>
+
+            <hr style={{"margin" : "40px"}}/>
             
-            {this.state.articles.map((article)=>{
-                return <ArticleListItem article={article}/>
-            })}
+            <h2 className={s.gridTitle}> Rules and Proposals </h2>
+            <div className={s.grid}>
+                {this.state.articles.slice(3).map((article, index)=>{
+                    return <ArticleListItem styling={s.listItem} article={article}/>
+                })}
+            </div>
         </div>
     }
 }

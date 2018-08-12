@@ -1,11 +1,20 @@
-import React from 'react'
+import React,{Component} from 'react'
 import s from './Landing.scss'
 import ArticleList from '../ArticleList/ArticleList'
+// import Loader from '../Loader/Loader'
 
-export default (props)=>{
-    return <div className={s.Landing}>
-        <ArticleList subject={props.subject}/>
+class Landing extends Component{
+    constructor(props) {
+        super(props)
+    
+    }
 
+    render(){
+        return <div className={s.Landing}>
+            <ArticleList subject={this.props.subject}/>
 
-    </div>
+        </div>
+    }
 }
+
+export default Landing
