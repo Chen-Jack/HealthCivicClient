@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import s from './ArticlePage.scss';
 import Header from '../HomePageAssets/components/Header/Header'
 import cn from 'classnames'
-
+import Footer from '../HomePageAssets/components/Footer/Footer'
 
 class Comment extends Component{
     constructor(props) {
@@ -28,9 +28,9 @@ class Comment extends Component{
             <div className={s.commentFooter}>
                 <span className={s.date}> Posted: {this.props.comment.date}  </span>
                 <div className={s.sentiment}>
-                    <span style={{"color":"lightgreen"}}> {this.props.comment.pos}% </span>
-                    <span style={{"color": "grey"}}> {this.props.comment.neu}% </span>
-                    <span style={{"color": "palevioletred"}}> {this.props.comment.neg}% </span>
+                    <span style={{"color":"lightgreen"}}> Good: {this.props.comment.pos}% </span>
+                    <span style={{"color": "grey"}}> Neutral: {this.props.comment.neu}% </span>
+                    <span style={{"color": "palevioletred"}}> Negative: {this.props.comment.neg}% </span>
                 </div>
             </div>
         </div>
@@ -85,10 +85,10 @@ class CommentSection extends Component{
     render(){
         return <div>
             <div className={s.topComment}> 
-                <h1> Recent Comment </h1>
-                    <Comment comment = {this.state.comments.length !=0 ? this.state.comments[0] : {}} />
-                <hr/>
+                <h1> Most Recent Comment </h1>
+                    <Comment comment = {this.state.comments.length !=0 ? this.state.comments[0] : {}} />    
             </div>
+            <hr/>
             {this.state.comments.splice(1).map((comment)=>{
                 return <Comment comment={comment} />
             })}
@@ -168,6 +168,8 @@ class ArticlePage extends Component {
                     
                 <CommentSection ref={this.commentSection}/>
             </div>
+
+            <Footer/>
         </div>
     }
 }

@@ -58,6 +58,23 @@ class ArticleList extends Component {
                     neutral: 40,
                     body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
                 },
+                
+                {
+                    id: 9,
+                    title: "Computer software can no longer farm for coins ", 
+                    likes: 2002, 
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 10,
+                    title: "Machines restricted from learn deeper than the Marianna's Trench", 
+                    likes: 2002, 
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
                 {
                     id: 4,
                     title: "Potato must pay health insurance", 
@@ -99,24 +116,8 @@ class ArticleList extends Component {
                     body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
                 },
                 {
-                    id: 9,
-                    title: "Computer software fails to bit the coin", 
-                    likes: 2002, 
-                    dislikes: 5244,
-                    neutral: 40,
-                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
-                },
-                {
-                    id: 10,
-                    title: "Can machines learn deeper the the Marianna's Trench?", 
-                    likes: 2002, 
-                    dislikes: 5244,
-                    neutral: 40,
-                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
-                },
-                {
                     id: 11,
-                    title: "Chair is on it's last legs", 
+                    title: "Chairs on it's last legs", 
                     likes: 2002, 
                     dislikes: 5244,
                     neutral: 40,
@@ -159,7 +160,7 @@ class ArticleList extends Component {
             {/* <h1> FEATURED </h1> */}
             {/* <Carousel className={s.carosel}>
                 <Carousel.Item> */}
-                    <FeaturedItem article={this.state.articles[0]} />
+                    {/* <FeaturedItem article={this.state.articles[0]} /> */}
                 {/* </Carousel.Item>
                 <Carousel.Item>
                     <FeaturedItem article={this.state.articles[1]} />
@@ -169,7 +170,7 @@ class ArticleList extends Component {
                 </Carousel.Item>
             </Carousel> */}
 
-            <hr style={{"margin" : "40px"}}/>
+            {/* <hr style={{"margin" : "40px"}}/> */}
             
             <h2 className={s.gridTitle}> Recent Rules and Proposals </h2>
             <div className={s.grid}>

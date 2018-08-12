@@ -5,8 +5,9 @@
 
 .commentBox{
     width: 80%;
-    height: 250px;
-    padding: 20px;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
     font-size: 1.5em;
     resize: none;
 }
@@ -30,7 +31,9 @@
         overflow: hidden;
         animation: all 200ms;
         width: 100%;
-        padding: 10px;
+        padding: 5px;
+        text-align: left;
+        font-size: 14pt;
 
 
         .expandHandle{
@@ -87,7 +90,7 @@
 
 .topComment{
     width: 100%;
-    padding: 10px;
+    height: auto;
     background-color:  #fffec8;
     border-top: 2px solid rgba(51, 122, 183, 0.3);
     border-bottom: 2px solid rgba(51, 122, 183, 0.3);
@@ -115,6 +118,7 @@
 }
 
 .body{
+    text-align: left;
     font-size: 1.5em;
 }
 
@@ -131,9 +135,9 @@ h2{
 .page_content{
     display: inline-block;
     width: 90%;
-    background-color: rgba(51, 122, 183, 0.1);
-    border-left: 2px solid rgba(0,0,0,0.5);
-    border-right: 2px solid rgba(0,0,0,0.5);
+    // background-color: rgba(51, 122, 183, 0.1);
+    // border-left: 2px solid rgba(0,0,0,0.5);
+    // border-right: 2px solid rgba(0,0,0,0.5);
 
     >form > button{
         color: rgba(51, 122, 183, 1);
