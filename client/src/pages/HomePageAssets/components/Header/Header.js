@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import s from './Header.scss'
 import {Link} from 'react-router-dom';
+import logo from './logo.png'
 
 class Header extends Component{
     constructor(props) {
@@ -19,7 +20,7 @@ class Header extends Component{
     render(){
         return <div className={s.Header}>
             <div className={s.home_space}>
-                <Link to= "/"> Health/Civic </Link>
+                <Link to= "/"> <img style={{"max-height": "40px"}}src={logo}/> Health/Civic </Link>
             </div>
             <div className={s.HeaderLinks}> 
                 {this.header_links.map(
