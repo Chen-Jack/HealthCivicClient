@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.commentBox{
+    width: 80%;
+    height: 250px;
+    resize: none;
+}
+
+.comment{
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white; 
+    box-sizing: border-box;
+    animation: all 200ms;
+
+
+
+    .text{
+        position: relative;
+        min-height: 50px;
+        height: 50px;
+        max-height: 50px;
+        overflow: hidden;
+        animation: all 200ms;
+        width: 100%;
+        padding: 10px;
+
+
+        .expandHandle{
+            position: absolute;
+            margin-left: -10px;
+            bottom: 0;
+            width: 100%;
+            height: 20px;
+            opacity: 0.25;
+            transition: all 200ms;
+            background: linear-gradient(white, lightblue);
+
+            &:hover{
+                opacity: 0.5;
+            }
+        }
+
+        
+    }
+
+    
+    .isExpanded{
+        height: max-content;
+        max-height: max-content;
+    }
+
+
+    .commentFooter{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border-top: 1px solid rgba(51, 122, 183, 0.5);
+        border-bottom: 1px solid rgba(51, 122, 183, 0.5);
+
+        .date{
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+        
+        .sentiment{
+            background-color: white;
+            display: flex;
+            color: black;
+
+            > span{
+                padding: 5px;
+                box-sizing: border-box;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+
+
+.title, .body{
+    padding: 20px;
+}
+
+.title{
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    font-size: 3em;
+    color: rgba(51, 122, 183, 1);
+    border-top: 2px solid rgba(0,0,0,0.5);
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+}
+
+.body{
+    font-size: 1.5em;
+}
+
+h2{
+    margin: 20px;
+}
+
+.page{
+    background-image: url(../HomePageAssets/polaroid.png);
+    text-align: center;
+
+}
+
+.page_content{
+    display: inline-block;
+    width: 90%;
+    background-color: #e2e2e2;
+    border-left: 2px solid rgba(0,0,0,0.5);
+    border-right: 2px solid rgba(0,0,0,0.5);
+}

@@ -8,13 +8,13 @@ import {Carousel} from 'react-bootstrap';
 
 const ArticleListItem = (props)=>{
     return <div className={props.styling}>
-        <img className={s.img} src={`https://source.unsplash.com/random/400x300`} />
+        <img className={s.img} src={`https://source.unsplash.com/random/400x300/?${props.article.title.split(' ')[0]}`} />
         <div className={s.content}>
             <h2 className={s.title}>
-            <Link className={s.link} to={`/article/${props.article.id}`} >{props.article.title} </Link>
+                <Link className={s.link} to={`/article/${props.article.id}`} >{props.article.title} </Link>
             </h2>
-            <h4 className={s.body}> {props.article.body} </h4>
-            <ButtonLayout article={props.article}/>
+            <h4 className={s.body}> {props.article.body.substring(0,200) + "..."} </h4>
+            {/* <ButtonLayout article={props.article}/> */}
         </div>
     </div>
 }
@@ -60,7 +60,7 @@ class ArticleList extends Component {
                 },
                 {
                     id: 4,
-                    title: "Eggs must pay health insurance", 
+                    title: "Potato must pay health insurance", 
                     likes: 50, 
                     dislikes: 54,
                     neutral: 40,
@@ -68,7 +68,7 @@ class ArticleList extends Component {
                 },
                 {
                     id: 5,
-                    title: "Lawmakers retire from making dumb policies", 
+                    title: "Environmental decision for retiring.", 
                     likes: 2002, 
                     dislikes: 5244,
                     neutral: 40,
@@ -76,7 +76,7 @@ class ArticleList extends Component {
                 },
                 {
                     id: 6,
-                    title: "Eggs must pay health insurance", 
+                    title: "Last day procrastinating from making dumb policies", 
                     likes: 50, 
                     dislikes: 54,
                     neutral: 40,
@@ -84,7 +84,7 @@ class ArticleList extends Component {
                 },
                 {
                     id: 7,
-                    title: "Chicken declared first", 
+                    title: "Chair declared first", 
                     likes: 10, 
                     dislikes: 522,
                     neutral: 40,
@@ -92,7 +92,7 @@ class ArticleList extends Component {
                 },
                 {
                     id: 8,
-                    title: "Eggs must pay health insurance", 
+                    title: "Snails must pay health insurance", 
                     likes: 50, 
                     dislikes: 54,
                     neutral: 40,
@@ -100,12 +100,29 @@ class ArticleList extends Component {
                 },
                 {
                     id: 9,
-                    title: "Lawmakers retire from making dumb policies", 
+                    title: "Computer software fails to bit the coin", 
                     likes: 2002, 
                     dislikes: 5244,
                     neutral: 40,
                     body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
                 },
+                {
+                    id: 10,
+                    title: "Can machines learn deeper the the Marianna's Trench?", 
+                    likes: 2002, 
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                {
+                    id: 11,
+                    title: "Chair is on it's last legs", 
+                    likes: 2002, 
+                    dislikes: 5244,
+                    neutral: 40,
+                    body: 'Atleniti atque corrupti quos dolores et quas molestias excepturi sin'
+                },
+                
             ],
             isLoading: true
         }
@@ -139,22 +156,22 @@ class ArticleList extends Component {
             {/* <button onClick={this.sortArticles.bind(this, 'likes')}> Sort by Likes </button>
             <button onClick={this.sortArticles.bind(this, 'dislikes')}> Sort by Dislikes </button>
             <button onClick={this.sortArticles.bind(this, 'title')}> Sort by Likes </button> */}
-            <h1> FEATURED </h1>
-            <Carousel className={s.carosel}>
-                <Carousel.Item>
+            {/* <h1> FEATURED </h1> */}
+            {/* <Carousel className={s.carosel}>
+                <Carousel.Item> */}
                     <FeaturedItem article={this.state.articles[0]} />
-                </Carousel.Item>
+                {/* </Carousel.Item>
                 <Carousel.Item>
                     <FeaturedItem article={this.state.articles[1]} />
                 </Carousel.Item>
                 <Carousel.Item>
                     <FeaturedItem article={this.state.articles[2]} />
                 </Carousel.Item>
-            </Carousel>
+            </Carousel> */}
 
             <hr style={{"margin" : "40px"}}/>
             
-            <h2 className={s.gridTitle}> Rules and Proposals </h2>
+            <h2 className={s.gridTitle}> Recent Rules and Proposals </h2>
             <div className={s.grid}>
                 {this.state.articles.slice(3).map((article, index)=>{
                     return <ArticleListItem styling={s.listItem} article={article}/>
