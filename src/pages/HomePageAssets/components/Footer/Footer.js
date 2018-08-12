@@ -9,11 +9,11 @@ export default (props)=>{
             Hackathon Team:
         </h3>
     </div>
-    <div>
+    <div style={{"textAlign" : "left"}}>
         <ul>
-            <li> Jean </li>
-            <li> Alvin </li>
-            <li> Cynthia </li>
+            <li> Jean-Ezra Yeung </li>
+            <li> Cynthia Clemons</li>
+            <li> Alvin Lam </li>
             <li> Jack Chen </li>
         </ul>
     </div>
