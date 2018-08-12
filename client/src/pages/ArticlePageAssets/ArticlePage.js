@@ -45,6 +45,15 @@ class CommentSection extends Component{
             isLoading: true,
             comments: []
         }
+
+    }
+
+    addArticle = (newArticle)=>{
+        let n = this.state.comments;
+        n.unshift(newArticle);
+        this.setState({
+            comments: n
+        })
     }
 
 
@@ -61,7 +70,6 @@ class CommentSection extends Component{
                     for( let i in docs){
                         doc_arr.push(docs[i])
                     }
-                    // console.log("hm", doc_arr)
                     this.setState({
                         comments: doc_arr,
                         isLoading: false
@@ -76,9 +84,11 @@ class CommentSection extends Component{
 
     render(){
         return <div>
-            <h1> Top Comment </h1>
-                <Comment comment = {this.state.comments.length !=0 ? this.state.comments[0] : {}} />
-            <hr/>
+            <div className={s.topComment}> 
+                <h1> Recent Comment </h1>
+                    <Comment comment = {this.state.comments.length !=0 ? this.state.comments[0] : {}} />
+                <hr/>
+            </div>
             {this.state.comments.splice(1).map((comment)=>{
                 return <Comment comment={comment} />
             })}
@@ -96,6 +106,25 @@ class ArticlePage extends Component {
             isLoading: true,
             article: {},
         }
+        this.commentBox = React.createRef();
+        this.commentSection = React.createRef();
+    }
+
+    
+    handleSubmission=(e)=>{
+        e.preventDefault();
+
+        
+        const text = this.commentBox.current.value;
+        const article={
+            content: text,
+            neg: 0,
+            neu: 0,
+            pos: 0,
+            date: "8-12-18"
+        }
+        console.log("adding article", article)
+        this.commentSection.current.addArticle(article);
     }
 
     componentWillMount(){
@@ -130,14 +159,14 @@ class ArticlePage extends Component {
 
                 <hr/><hr/>
 
-                <form>
-                <textarea className={s.commentBox} placeholder="MAKE YOUR VOICE HEARD"/> <br/>
-                <button type="submit"> Submit </button> 
+                <form onSubmit={this.handleSubmission}>
+                    <textarea ref={this.commentBox} className={s.commentBox} placeholder="MAKE YOUR VOICE HEARD!"/> <br/>
+                    <button type="submit"> Submit </button> 
                 </form>
 
                 <hr/><hr/>
                     
-                <CommentSection/>
+                <CommentSection ref={this.commentSection}/>
             </div>
         </div>
     }
