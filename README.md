@@ -9,7 +9,7 @@ Flask </br>
 React.js </br>
 MongoDB </br>
 
-## Developement Team:
+## Development Team:
 Jean-Ezra Yeung (Backend + Data Analysis) </br>
 Alvin Lam (Backend + Data Analysis) </br>
 Cynthia Clemons (Designer) </br>
